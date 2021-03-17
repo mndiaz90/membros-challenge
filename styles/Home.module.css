@@ -1,0 +1,44 @@
+.containerPrincipal{    
+    height: 100vh; 
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+}
+.containerInput{
+    padding: 0 4rem;
+}
+
+.inputPesquisar{
+    height: 2rem;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 1.2rem;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.gridMember{
+    padding: 2rem 4rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gridMember li{
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    width: 16rem;
+    border: 1px solid #b5adad;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.imgProfile{
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    margin: 0.5rem 0.5rem;
+}
