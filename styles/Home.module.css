@@ -11,7 +11,7 @@
     padding: 0 4rem;
 }
 
-.inputPesquisar{
+.containerInput input{
     height: 2rem;
     width: 100%;
 
@@ -19,7 +19,6 @@
     border-radius: 3px;
 
     padding: 1.2rem;
-    margin-top: 10px;
 }
 
 .containerInput input:focus{
