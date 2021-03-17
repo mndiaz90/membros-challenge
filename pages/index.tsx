@@ -1,6 +1,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import CardUser from "../components/CardUser";
 import { HeaderCmp } from "../components/HeaderCmp";
+import ModalUserDetail from "../components/ModalUserDetail";
 import styles from '../styles/Home.module.css';
 
 interface Dados {
@@ -20,6 +21,8 @@ export default function HomePage(props: Dados) {
     const [arrayMembers, setArrayMembers] = useState<[Member] | any>(props.dados);
     const [notFound, setNotFound] = useState(false);
     const [pesquisar, setPesquisar] = useState<string>("");
+    const [dadosUser, setDadosUser] = useState<Member>();
+    const [modalUserDetail, setModalUserDetail] = useState(false);
 
     function onChangePesquisar(e: ChangeEvent<HTMLInputElement>) {
         setPesquisar(e.currentTarget.value)
@@ -62,10 +65,13 @@ export default function HomePage(props: Dados) {
                         key={index}
                         login={member.login}
                         urlAvatar={member.avatar_url}
+                        setDadosUser={setDadosUser}
+                        setModalUserDetail={setModalUserDetail}
                     />
                 })}
             </ul>
         }
+        {modalUserDetail && < ModalUserDetail dadosUser={dadosUser} setModalUserDetail={setModalUserDetail} />}
     </div>
 }
 
