@@ -22,31 +22,12 @@
     margin-top: 10px;
 }
 
+.containerInput input:focus{
+    outline: none;
+}
+
 .gridMember{
     padding: 2rem 4rem;
     display: flex;
     flex-wrap: wrap;
-}
-
-.gridMember li{
-    display: flex;
-    align-items: center;
-
-    height: 5rem;
-    width: 16rem;
-
-    border: 1px solid #b5adad;
-    border-radius: 4px;
-
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-.imgProfile{
-    border-radius: 50%;
-
-    height: 4rem;
-    width: 4rem;
-    
-    margin: 0.5rem 0.5rem;
 }

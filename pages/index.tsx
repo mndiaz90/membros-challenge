@@ -1,4 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
+import CardUser from "../components/CardUser";
 import { HeaderCmp } from "../components/HeaderCmp";
 import styles from '../styles/Home.module.css';
 
@@ -57,10 +58,11 @@ export default function HomePage(props: Dados) {
         {notFound ? <div><h2>Nao foi encontrado o usuário</h2></div> :
             <ul className={styles.gridMember}>
                 {arrayMembers.map((member: Member, index: number) => {
-                    return <li key={index}>
-                        <img className={styles.imgProfile} src={member.avatar_url} alt="imgProfile" />
-                        {member.login}
-                    </li>
+                    return <CardUser
+                        key={index}
+                        login={member.login}
+                        urlAvatar={member.avatar_url}
+                    />
                 })}
             </ul>
         }

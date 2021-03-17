@@ -1,0 +1,22 @@
+.rowGridMember{
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    background: var(--white);
+    margin: 5px;
+    flex: 1 0 21%;
+    border-radius: 3px;
+}
+
+.imgProfile{
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    margin: 0.5rem 0.5rem;
+}
+
+.rowGridMember:hover{
+    border: 1px solid #c6cfe2;
+    box-shadow: 0 0 60px rgb(0 0 0 / 5%);
+    cursor: pointer;
+} 
