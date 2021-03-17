@@ -1,4 +1,4 @@
-import styles from '../styles/components/HeaderCmp.module.css'
+import styles from '../../styles/components/HeaderCmp.module.css'
 
 export function HeaderCmp() {
     return (

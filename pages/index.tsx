@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { HeaderCmp } from "../components";
+import { HeaderCmp } from "../components/HeaderCmp";
 import styles from '../styles/Home.module.css';
 
 interface Dados {
