@@ -1,4 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
+import { HeaderCmp } from "../components";
 import styles from '../styles/Home.module.css';
 
 interface Dados {
@@ -42,6 +43,7 @@ export default function HomePage(props: Dados) {
     }, [pesquisar])
 
     return <div className={styles.containerPrincipal}>
+        <HeaderCmp />
         <h3>Membros do Tesseract no github</h3>
         <div className={styles.containerInput}>
             <input

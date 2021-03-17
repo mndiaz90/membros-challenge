@@ -1,0 +1,11 @@
+.containerHeader{
+    height: 6rem;
+    background: black;
+    display: flex; 
+    align-items: center;
+}
+
+.imgLogo{
+    height: 6rem;
+    border-radius: 50%;
+}
