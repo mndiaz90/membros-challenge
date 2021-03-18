@@ -44,3 +44,8 @@
 .containerDados p{
     margin: 10px 0;
 }
+
+.gifLoading{
+    height: 2rem;
+    margin: 20px 10px;
+}
