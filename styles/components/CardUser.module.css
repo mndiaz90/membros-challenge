@@ -8,6 +8,10 @@
     border-radius: 3px;
 }
 
+.rowGridMember p{ 
+    margin-right: 5px;
+}
+
 .imgProfile{
     border-radius: 50%;
     height: 4rem;
