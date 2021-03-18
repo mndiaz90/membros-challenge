@@ -38,7 +38,7 @@ const CardUser: React.FC<CardUserProps> = (props) => {
                 alert('Erro na chamada')
             }
         }).catch(function (error) {
-            alert('Existe problema com a chamada Fetch:' + error.message);
+            alert('Erro na chamada: ' + error.message);
         });
     }
 
