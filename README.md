@@ -17,13 +17,17 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ```bash
  git clone git@github.com:mndiaz90/tesseract-challenge.git
 ```
+- Entrar na pasta do projeto: 
+```bash
+ cd tesseract-challenge
+```
 - Instalar as dependencias executando na consola o comando: 
 ```bash
  npm install
 ```
 - Para finalizar executar o comando:
 ```bash
- npm run serv
+ npm run dev
 ```
 ### **Para ver o projeto online pode accessar no site**
 [tesseract-challenge](https://tesseract-challenge.herokuapp.com/)
