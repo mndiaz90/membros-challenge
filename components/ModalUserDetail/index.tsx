@@ -9,11 +9,21 @@ interface ModalUserDetailProps {
         followers: number,
         created_at: Date
     },
-    setModalUserDetail: Function
+    setModalUserDetail: Function,
+    setDadosUser: Function
 }
 
 const ModalUserDetail: React.FC<ModalUserDetailProps> = (props) => {
+
     function onClickClose() {
+        props.setDadosUser({
+            login: "",
+            name: "",
+            avatar_url: "",
+            public_repos: 0,
+            followers: 0,
+            created_at: new Date,
+        })
         props.setModalUserDetail(false);
     }
 
@@ -26,20 +36,28 @@ const ModalUserDetail: React.FC<ModalUserDetailProps> = (props) => {
     return (
         <div className={styles.modalUserDetail}>
             <div className={styles.containerDados}>
-                <p style={{ margin: 0 }}><strong>Mais acerca de {props.dadosUser.login}</strong></p>
-                <hr style={{
-                    border: '1px solid gray',
-                    width: '100%'
-                }} />
                 <div className={styles.containerImgClose} onClick={onClickClose}>
                     <img src="/close.svg" alt="close" />
                 </div>
-                <img className={styles.imgProfile} src={props.dadosUser.avatar_url} alt="image-profile" />
-                <p><strong>Nome</strong>: {props.dadosUser.name}</p>
-                <p><strong>Quantidade de repositórios</strong>: {props.dadosUser.public_repos}</p>
-                <p><strong>Quantidade de seguidores</strong>: {props.dadosUser.followers}</p>
-                <p><strong>Data entrada no Github</strong>: {DataFormatada()}</p>
-
+                {props.dadosUser.login ?
+                    <>
+                        <p style={{ margin: 0 }}><strong>Mais acerca de {props.dadosUser.login}</strong></p>
+                        <hr style={{
+                            border: '1px solid gray',
+                            width: '100%'
+                        }} />
+                        <img className={styles.imgProfile} src={props.dadosUser.avatar_url} alt="image-profile" />
+                        <p><strong>Nome</strong>: {props.dadosUser.name}</p>
+                        <p><strong>Quantidade de repositórios</strong>: {props.dadosUser.public_repos}</p>
+                        <p><strong>Quantidade de seguidores</strong>: {props.dadosUser.followers}</p>
+                        <p><strong>Data entrada no Github</strong>: {DataFormatada()}</p>
+                    </>
+                    :
+                    <div style={{ display: 'flex' }}>
+                        <h2>Carregando dados </h2>
+                        <img className={styles.gifLoading} src="/loading.gif" alt="loading" />
+                    </div>
+                }
             </div>
         </div>
     )
