@@ -29,8 +29,8 @@ export default function HomePage(props: Dados) {
     }
 
     function pesquisarUser() {
-        if (pesquisar.length) {
-            let membersFinded = props.dados.filter(member => member.login.toLowerCase().includes(pesquisar.toLowerCase()));
+        if (pesquisar.trim().length) {
+            let membersFinded = props.dados.filter(member => member.login.toLowerCase().includes(pesquisar.trim().toLowerCase()));
             if (membersFinded.length) {
                 setArrayMembers(membersFinded)
                 setNotFound(false)
@@ -39,6 +39,7 @@ export default function HomePage(props: Dados) {
             }
         } else {
             setArrayMembers(props.dados)
+            setNotFound(false)
         }
     }
 
