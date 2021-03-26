@@ -17,25 +17,20 @@ interface Member {
 }
 
 export default function HomePage(props: Dados) {
-    const [arrayMembers, setArrayMembers] = useState<[Member] | any>(props.dados);
     const [notFound, setNotFound] = useState(false);
     const [pesquisar, setPesquisar] = useState<string>("");
 
     function onChangePesquisar(e: ChangeEvent<HTMLInputElement>) {
-        setPesquisar(e.currentTarget.value)
+        setPesquisar(e.currentTarget.value.toLowerCase())
     }
+
+    let membersFinded = props.dados.filter((member: Member) => member.login.toLowerCase().includes(pesquisar.trim()));
 
     function pesquisarUser() {
         if (pesquisar.trim().length) {
-            let membersFinded = props.dados.filter(member => member.login.toLowerCase().includes(pesquisar.trim().toLowerCase()));
-            if (membersFinded.length) {
-                setArrayMembers(membersFinded)
-                setNotFound(false)
-            } else {
-                setNotFound(true)
-            }
+            membersFinded = props.dados.filter((member: Member) => member.login.toLowerCase().includes(pesquisar.trim()));
+            membersFinded.length ? setNotFound(false) : setNotFound(true)
         } else {
-            setArrayMembers(props.dados)
             setNotFound(false)
         }
     }
@@ -58,7 +53,7 @@ export default function HomePage(props: Dados) {
 
         {notFound ? <div><h2>Nao foi encontrado o usuário</h2></div> :
             <ul className={styles.gridMember}>
-                {arrayMembers.map((member: Member, index: number) => {
+                {membersFinded.map((member: Member, index: number) => {
                     return <CardUser
                         key={index}
                         login={member.login}
