@@ -3,7 +3,10 @@ import '../styles/globals.css';
 function MyApp({ Component, pageProps }) {
 
     return (
-        <Component {...pageProps} />
+        <div>
+            <title>Tesseract</title>
+            <Component {...pageProps} />
+        </div>
     )
 
 }
