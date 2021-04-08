@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import styles from '../../styles/components/CardUser.module.css'
+import styles from '../../styles/components/CardUser.module.css';
 import ModalUserDetail from '../ModalUserDetail';
-
 interface CardUserProps {
     login: string,
     urlAvatar: string
 }
-
 interface Member {
     login: string,
     name: string,
@@ -29,17 +27,18 @@ const CardUser: React.FC<CardUserProps> = (props) => {
 
     function onClickUser() {
         setModalUserDetail(true);
-        fetch(`https://api.github.com/users/${props.login}`).then(response => {
-            if (response.ok) {
-                return response.json().then(data => {
-                    setDadosUser(data);
-                });
-            } else {
-                alert('Erro na chamada')
-            }
-        }).catch(function (error) {
-            alert('Erro na chamada: ' + error.message);
-        });
+        fetch(`https://api.github.com/users/${props.login}`)
+            .then(response => {
+                if (response.ok) {
+                    return response.json().then(data => {
+                        setDadosUser(data);
+                    });
+                } else {
+                    alert('Erro na chamada')
+                }
+            }).catch(function (error) {
+                alert('Erro na chamada: ' + error.message);
+            });
     }
 
     return (
@@ -48,14 +47,11 @@ const CardUser: React.FC<CardUserProps> = (props) => {
                 <img className={styles.imgProfile} src={props.urlAvatar} alt="avatar" />
                 <p>{props.login}</p>
             </li>
-
-            {
-                modalUserDetail && < ModalUserDetail
-                    dadosUser={dadosUser}
-                    setModalUserDetail={setModalUserDetail}
-                    setDadosUser={setDadosUser}
-                />
-            }
+            {modalUserDetail && < ModalUserDetail
+                dadosUser={dadosUser}
+                setModalUserDetail={setModalUserDetail}
+                setDadosUser={setDadosUser}
+            />}
         </>
     )
 }

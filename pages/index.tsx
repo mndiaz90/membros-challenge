@@ -6,7 +6,6 @@ import styles from '../styles/Home.module.css';
 interface Dados {
     dados: Array<Member>
 }
-
 interface Member {
     login: string,
     name: string,
@@ -15,13 +14,12 @@ interface Member {
     followers: number,
     created_at: Date,
 }
-
 export default function HomePage(props: Dados) {
     const [notFound, setNotFound] = useState(false);
     const [pesquisar, setPesquisar] = useState<string>("");
 
     function onChangePesquisar(e: ChangeEvent<HTMLInputElement>) {
-        setPesquisar(e.currentTarget.value.toLowerCase())
+        setPesquisar(e.currentTarget.value.toLowerCase());
     }
 
     let membersFinded = props.dados.filter((member: Member) => member.login.toLowerCase().includes(pesquisar.trim()));
@@ -36,7 +34,7 @@ export default function HomePage(props: Dados) {
     }
 
     useEffect(() => {
-        pesquisarUser()
+        pesquisarUser();
     }, [pesquisar])
 
     return <div className={styles.containerPrincipal}>
@@ -50,7 +48,6 @@ export default function HomePage(props: Dados) {
                 placeholder="Digite o usuário a pesquisar"
             />
         </div>
-
         {notFound ? <div><h2>Nao foi encontrado o usuário</h2></div> :
             <ul className={styles.gridMember}>
                 {membersFinded.map((member: Member, index: number) => {
@@ -66,8 +63,8 @@ export default function HomePage(props: Dados) {
 }
 
 HomePage.getInitialProps = async () => {
-    const response = await fetch('https://api.github.com/orgs/grupotesseract/public_members')
-    const json = await response.json()
+    const response = await fetch('https://api.github.com/orgs/grupotesseract/public_members');
+    const json = await response.json();
     return {
         dados: json
     }

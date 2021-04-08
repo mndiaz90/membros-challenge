@@ -1,5 +1,4 @@
-import styles from '../../styles/components/ModalUserDetail.module.css'
-
+import styles from '../../styles/components/ModalUserDetail.module.css';
 interface ModalUserDetailProps {
     dadosUser: {
         login: string,
@@ -28,7 +27,7 @@ const ModalUserDetail: React.FC<ModalUserDetailProps> = (props) => {
     }
 
     function DataFormatada() {
-        let data = new Date(props.dadosUser.created_at)
+        let data = new Date(props.dadosUser.created_at);
         return ("0" + data.getDate()).substr(-2) + "/"
             + ("0" + (data.getMonth() + 1)).substr(-2) + "/" +
             data.getFullYear();
